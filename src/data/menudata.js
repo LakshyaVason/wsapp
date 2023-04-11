@@ -3,7 +3,7 @@ import { AiOutlineCalendar, AiOutlineShoppingCart, AiOutlineAreaChart, AiOutline
 import { FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, FiShoppingCart } from 'react-icons/fi';
 import { BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft } from 'react-icons/bs';
 import { BiColorFill } from 'react-icons/bi';
-import { IoIosInformationCircleOutline, IoMdPlayCircle, IoIosHelpCircleOutline, IoMdAlbums, IoMdAddCircleOutline, IoIosGlobe, IoMdContacts } from 'react-icons/io';
+import { IoIosListBox, IoIosInformationCircle, IoMdPlayCircle, IoMdHelpCircle, IoMdAlbums, IoMdAddCircle, IoIosGlobe, IoMdContacts } from 'react-icons/io';
 import { RiContactsLine, RiStockLine } from 'react-icons/ri';
 import { MdOutlineSupervisorAccount } from 'react-icons/md';
 import { HiOutlineRefresh } from 'react-icons/hi';
@@ -476,11 +476,11 @@ export const links = [
         links: [
           {
             name: 'How it works',
-            icon: <IoIosInformationCircleOutline />,
+            icon: <IoIosInformationCircle />,
           },
           {
             name: 'Help/FAQ',
-            icon: <IoIosHelpCircleOutline />,
+            icon: <IoMdHelpCircle />,
           },
           {
             name: 'Demo',
@@ -497,11 +497,11 @@ export const links = [
       },
       {
         name: 'Add/Remove Website',
-        icon: <IoMdAddCircleOutline />,
+        icon: <IoMdAddCircle />,
       },
       {
-        name: 'Settings',
-        icon: <IoIosGlobe />,
+        name: 'Supported Sites',
+        icon: <IoIosListBox />,
       },
     ],
   },

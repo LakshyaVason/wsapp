@@ -30,10 +30,10 @@ const Navbar = () => {
 
   return (
     <div className='flex justify-between p-2 md:ml-6 md:mr-6 relative'>
-      <NavButton title='Menu' customFunc={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)} color='blue' icon={<AiOutlineMenu />} />
+      <NavButton title='Menu' customFunc={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)} color='black' icon={<AiOutlineMenu />} />
 
       <div className='flex'>
-        <NavButton title='Notification' customFunc={() => handleClick('notification')} color='blue' icon={<RiNotification3Line />}
+        <NavButton title='Notification' customFunc={() => handleClick('notification')} color='black' icon={<RiNotification3Line />}
         />
         <TooltipComponent
           content='Profile'
