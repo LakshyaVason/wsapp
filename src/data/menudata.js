@@ -476,14 +476,17 @@ export const links = [
         links: [
           {
             name: 'How it works',
+            li: 'how-it-works',
             icon: <IoIosInformationCircle />,
           },
           {
             name: 'Help/FAQ',
+            li: 'help',
             icon: <IoMdHelpCircle />,
           },
           {
             name: 'Demo',
+            li: 'demo',
             icon: <IoMdPlayCircle />,
           },
         ],
@@ -493,14 +496,17 @@ export const links = [
     links: [
       {
         name: 'My Websites',
+        li: 'my-websites',
         icon: <IoMdAlbums />,
       },
       {
         name: 'Add/Remove Website',
+        li: 'add-remove-website',
         icon: <IoMdAddCircle />,
       },
       {
         name: 'Supported Sites',
+        li: 'supported-sites',
         icon: <IoIosListBox />,
       },
     ],

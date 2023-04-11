@@ -4,14 +4,14 @@ import { SiShopware } from 'react-icons/si';
 import { MdOutlineCancel } from 'react-icons/md';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
-import { links } from '../data/menudata';
+import { links } from '../data/menudata'; //data
 import { useStateContext } from '../contexts/ContextProvider';
 
 const Sidebar = () => {
   const { activeMenu, setActiveMenu } = useStateContext();
 
-  const activeLink = 'flex items-center gap-5 pl4 pt-3 pb-2.5 rounded-lg text-white text-md m-2';
-  const normalLink = 'flex items-center gap-5 pl4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2';
+  const activeLink = 'flex items-center gap-3 pl-4 pt-3 pb-3 rounded-lg text-md text-gray-700 dark:text-gray-200 bg-dark-gray dark:hover:text-black hover:bg-dark-gray m-3';
+  const normalLink = 'flex items-center gap-3 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2 hover:bg-dark-gray';
   return (
     <div className='ml-3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10'>
       {activeMenu && (<>
@@ -32,22 +32,23 @@ const Sidebar = () => {
         <div className='mt-10'>
           {links.map((item) => (
             <div key={item.title}>
-              <p className='text-gray-400 m-3 mt-4 uppercase'>
+              <p className='text-gray-400 dark:text-gray-400 m-3 mt-4 uppercase'>
                 {item.title}
               </p>
               {item.links.map((link) => (
                 <NavLink
-                  to={`/${Link.name}`}
-                  key={link.name}
-                  onClick={() => {}}
-                  className={({ isActive }) =>
-                  isActive ? activeLink : normalLink}
-                  >
-                    {link.icon}
-                      <span className="capitalize">
-                        {link.name}
-                      </span>
-                </NavLink>
+                to={`/${link.li}`}
+                key={link.name}
+                onClick={() => {}}
+                className={({ isActive }) =>
+                isActive ? activeLink : normalLink}
+                activeClassName="bg-dark-gray"
+              >
+                {link.icon}
+                <span className="capitalize">
+                  {link.name}
+                </span>
+              </NavLink>
               ))}
             </div>
           ))}

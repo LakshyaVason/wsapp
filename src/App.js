@@ -52,12 +52,12 @@ const App = () => {
                <Route path="/" element={(<Homepage />)} />
 
                 {/* Pages  */}
-                <Route path="/howitworks" element={<HowItWorks />} />
+                <Route path="/how-it-works" element={<HowItWorks />} />
                 <Route path="/help" element={<HelpFAQ />} />
-                <Route path="/Demo" element={<Demo />} />
-                <Route path="/mywebsites" element={<MyWebsites />} />
-                <Route path="/addremove" element={<AddRemoveWS />} />
-                <Route path="/supportedsites" element={<SupportedSites />} />
+                <Route path="/demo" element={<Demo />} />
+                <Route path="/my-websites" element={<MyWebsites />} />
+                <Route path="/add-remove-website" element={<AddRemoveWS />} />
+                <Route path="/supported-sites" element={<SupportedSites />} />
                 
             </Routes>
           </div>
