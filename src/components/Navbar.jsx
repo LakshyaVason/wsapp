@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
-import { FiShoppingCart } from 'react-icons/fi';
-import { BsChatLeft } from 'react-icons/bs';
+//import { FiShoppingCart } from 'react-icons/fi';
+//import { BsChatLeft } from 'react-icons/bs';
 import { RiNotification3Line } from 'react-icons/ri';
 import { MdKeyboardArrowDown } from 'react-icons/md';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import Mickey from '../data/mickey.jpg';
-import { Cart, Chat, Notification, UserProfile } from '.';
+import { Notification, UserProfile } from '.';
 import { useStateContext } from '../contexts/ContextProvider';
 
 const NavButton = ({title, customFunc, icon, color, dotColor }) => (
@@ -29,11 +29,11 @@ const Navbar = () => {
   const { activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick } = useStateContext();
 
   return (
-    <div className='flex justify-between p-2 md:mx-6 relative'>
+    <div className='flex justify-between p-2 md:ml-6 md:mr-6 relative'>
       <NavButton title='Menu' customFunc={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)} color='blue' icon={<AiOutlineMenu />} />
 
       <div className='flex'>
-        <NavButton title='Cart' customFunc={() => handleClick('cart')} color='blue' icon={<FiShoppingCart />}
+        <NavButton title='Notification' customFunc={() => handleClick('notification')} color='blue' icon={<RiNotification3Line />}
         />
         <TooltipComponent
           content='Profile'
@@ -55,11 +55,11 @@ const Navbar = () => {
           </div>
         </TooltipComponent>
 
-        {isClicked.cart && <Cart />}
+        {isClicked.notification && <Notification />}
         {isClicked.userProfile && <UserProfile />}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Navbar
