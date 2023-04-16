@@ -1,115 +1,174 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { FaCode, FaDatabase, FaChartBar, FaAngleUp } from 'react-icons/fa';
+import styled from 'styled-components';
 
 const Homepage = () => {
   return (
-    <div>Homepage</div>
-  )
-}
+    <MainContainer>
+      <Hero>
+        <Heading>Web Scraping Application</Heading>
+        <Description>
+          Effortlessly extract data from websites and transform it into actionable insights.
+        </Description>
+        <ButtonsContainer>
+          <StyledLink to="/add-remove-website">Scrape Now</StyledLink>
+          <StyledLink to="/my-websites">My Websites</StyledLink>
+        </ButtonsContainer>
+        <ScrollIndicator>
+          <FaAngleUp />
+        </ScrollIndicator>
+      </Hero>
+      <FeaturesSection>
+        <FeaturesHeading>Features</FeaturesHeading>
+        <FeaturesGrid>
+          <Feature>
+            <IconContainer>
+              <FaCode style={iconStyle} />
+            </IconContainer>
+            <FeatureHeading>Easy Scraping</FeatureHeading>
+            <FeatureDescription>
+              Our web scraping application makes it easy to extract data from any supported website.
+            </FeatureDescription>
+          </Feature>
+          <Feature>
+            <IconContainer>
+              <FaDatabase style={iconStyle} />
+            </IconContainer>
+            <FeatureHeading>Robust Data Management</FeatureHeading>
+            <FeatureDescription>
+              Once you've scraped data, you can easily view and manage it.
+            </FeatureDescription>
+          </Feature>
+          <Feature>
+            <IconContainer>
+              <FaChartBar style={iconStyle} />
+            </IconContainer>
+            <FeatureHeading>Actionable Insights</FeatureHeading>
+            <FeatureDescription>
+              Get notified of any changes to the website you scraped
+            </FeatureDescription>
+          </Feature>
+        </FeaturesGrid>
+      </FeaturesSection>
+    </MainContainer>
+  );
+};
 
-export default Homepage
+const iconStyle = {
+  fontSize: '2rem',
+  color: 'white'
+};
 
-// import React from 'react';
-// import AppBar from '@mui/material/AppBar';
-// import Toolbar from '@mui/material/Toolbar';
-// import Typography from '@mui/material/Typography';
-// import Button from '@mui/material/Button';
-// import Box from '@mui/material/Box';
-// import Container from '@mui/material/Container';
-// import Paper from '@mui/material/Paper';
-// import Grid from '@mui/material/Grid';
-// import { styled } from '@mui/system';
-// import {
-//   Code,
-//   Visibility,
-//   Speed,
-//   Devices,
-//   Public,
-//   Language,
-// } from '@mui/icons-material';
+const MainContainer = styled.div`
+  background-color: white;
+  color: #374151;
+`;
 
-// const StyledAppBar = styled(AppBar)(({ theme }) => ({
-//   backgroundColor: 'black',
-// }));
+const Hero = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+`;
 
-// const StyledToolbar = styled(Toolbar)(({ theme }) => ({
-//   justifyContent: 'space-between',
-// }));
+const Heading = styled.h1`
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+`;
 
-// const Feature = ({ icon, title, description }) => (
-//   <Grid item xs={12} sm={6} md={4}>
-//     <Paper elevation={3} style={{ height: '100%', padding: '1rem' }}>
-//       <Box display="flex" justifyContent="center" mb={2}>
-//         {icon}
-//       </Box>
-//       <Typography variant="h6" gutterBottom>
-//         {title}
-//       </Typography>
-//       <Typography>{description}</Typography>
-//     </Paper>
-//   </Grid>
-// );
+const Description = styled.p`
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+`;
 
-// const Homepage = () => {
-//   return (
-//     <Box>
-//       <StyledAppBar position="static">
-//         <StyledToolbar>
-//           <Typography variant="h6">WebScraper Pro</Typography>
-//           <Button variant="outlined" color="inherit" onClick={() => alert('Getting started!')}>
-//             Get Started
-//           </Button>
-//         </StyledToolbar>
-//       </StyledAppBar>
-//       <Container maxWidth="lg">
-//         <Box my={4}>
-//           <Typography variant="h4" align="center" gutterBottom>
-//             Welcome to WebScraper Pro!
-//           </Typography>
-//           <Typography variant="subtitle1" align="center" gutterBottom>
-//             Your go-to solution for efficient and hassle-free web scraping
-//           </Typography>
-//         </Box>
-//         <Grid container spacing={4}>
-//           <Feature
-//             icon={<Code fontSize="large" />}
-//             title="Feature 1"
-//             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero."
-//           />
-//           <Feature
-//             icon={<Visibility fontSize="large" />}
-//             title="Feature 2"
-//             description="Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet."
-//           />
-//           <Feature
-//             icon={<Speed fontSize="large" />}
-//             title="Feature 3"
-//             description="Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta."
-//           />
-//           <Feature
-//             icon={<Devices fontSize="large" />}
-//             title="Feature 4"
-//             description="Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis."
-//           />
-//           <Feature
-//             icon={<Public fontSize="large" />}
-//             title="Feature 5"
-//             description="Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
-//           />
-//           <Feature
-//             icon={<Language fontSize="large" />}
-//             title="Feature 6"
-//             description="Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam."
-//           />
-//         </Grid>
-//       </Container>
-//       <Box mt={5} py={3} bgcolor="black">
-//         <Typography variant="body2" color="text.secondary" align="center">
-//           © 2023 WebScraper Pro. All rights reserved.
-//         </Typography>
-//       </Box>
-//     </Box>
-//   );
-// };
+const ButtonsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+`;
 
-// export default Homepage;
+const StyledLink = styled(Link)`
+background-color: #374151;
+color: white;
+padding: 1rem 2rem;
+border-radius: 2rem;
+margin: 0 1rem;
+font-size: 1.2rem;
+text-decoration: none;
+text-transform: uppercase;
+letter-spacing: 0.1rem;
+transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 
+  &:hover {
+    background-color: #dedede;
+    color: #374151;
+  }
+  `;
+  
+  const ScrollIndicator = styled.div`
+  position: absolute;
+  bottom: 4rem;
+  font-size: 2rem;
+  color: #374151;
+  cursor: pointer;
+`;
+  
+const FeaturesSection = styled.section `
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 75vh;
+  padding: 2rem;
+  background-color: #f7f7f7;
+`;
+
+const FeaturesHeading = styled.h2 `
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+`;
+
+const FeaturesGrid = styled.div `
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+`;
+
+const Feature = styled.div `
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 40rem;
+`;
+
+const IconContainer = styled.div `
+  background-color: #374151;
+  border-radius: 50%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+`;
+
+const FeatureHeading = styled.h3 `
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+`;
+
+const FeatureDescription = styled.p `
+  font-size: 1rem;
+  text-align: center;
+`;
+
+  
+  export default Homepage;
+  
