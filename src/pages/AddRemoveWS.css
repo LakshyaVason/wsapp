@@ -1,4 +1,86 @@
 .AddRemoveWS {
+  text-align: center;
+  background-color: #444a56;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+}
+
+.AddRemoveWS-header {
+  margin: 2rem 0;
+}
+
+.AddRemoveWS input {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.AddRemoveWS button {
+  background-color: darkgrey;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.AddRemoveWS button:hover {
+  background-color: grey;
+}
+
+.AddRemoveWS p {
+  margin: 1rem 0;
+}
+
+.websites-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.website-item {
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  padding: 1rem;
+  width: 300px;
+}
+
+.website-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.website-hostname {
+  font-weight: bold;
+}
+
+.remove-button {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+
+
+
+
+/*
+.AddRemoveWS {
     text-align: center;
     background-color: #444a56;
     min-height: 100vh;
@@ -39,4 +121,4 @@
   .AddRemoveWS p {
     margin: 1rem 0;
   }
-  
+*/

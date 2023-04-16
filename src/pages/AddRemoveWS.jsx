@@ -1,45 +1,60 @@
-import React, { useState } from 'react';
-import './AddRemoveWS.css';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-function AddRemoveWS() {
+const AddRemoveWS = () => {
+  const [data, setData] = useState([]);
   const [url, setUrl] = useState('');
-  const [name, setName] = useState('');
-  const [price, setPrice] = useState('');
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const response = await fetch('http://localhost:5000/scrape', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ url }),
-    });
-    const data = await response.json();
-    if (data.error) {
-      alert(data.error);
-    } else {
-      setName(data.name);
-      setPrice(data.price);
+  useEffect(() => {
+    fetchScrapedData();
+  }, []);
+
+  const fetchScrapedData = async () => {
+    try {
+      const response = await axios.get('http://localhost:5000/scraped_data');
+      setData(response.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
     }
   };
-  
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('http://localhost:5000/scrape', { url });
+      const newData = { ...data };
+      newData[response.data.website] = [response.data.product_name, response.data.product_price];
+      setData(newData);
+      setUrl('');
+    } catch (error) {
+      console.error('Error scraping website:', error);
+    }
+  };
 
   return (
-    <div className="AddRemoveWS">
-      <header className="AddRemoveWS-header">
-        <form onSubmit={handleSubmit}>
-          <label>
-            Enter a product URL:
-            <input type="text" value={url} onChange={(event) => setUrl(event.target.value)} />
-          </label>
-          <button type="submit">Scrape Price</button>
-        </form>
-        {name && <p>Product Name: {name}</p>}
-        {price && <p>Product Price: {price}</p>}
-      </header>
+    <div>
+      <h1>Web Scraper Dashboard</h1>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Enter a new URL to scrape:
+          <input
+            type="text"
+            value={url}
+            onChange={(e) => setUrl(e.target.value)}
+          />
+        </label>
+        <button type="submit">Scrape and Add Website</button>
+      </form>
+      <div>
+        <h2>Scraped Data</h2>
+        {Object.entries(data).map(([url, [name, price]]) => (
+          <div key={url}>
+            {url}: {name} - ${price}
+          </div>
+        ))}
+      </div>
     </div>
   );
-}
+};
 
 export default AddRemoveWS;
